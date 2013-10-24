@@ -1,5 +1,5 @@
 require "garuda_metric/version"
-
+require "garuda_metric/metric"
 module GarudaMetric
-  # Your code goes here...
+  # include GarudaMetric::Metric
 end
