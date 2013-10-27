@@ -7,7 +7,7 @@ Populate simple metric data, and store the to MongoDB
 Add this line to your application's Gemfile:
 
     gem 'garuda_metric'
-    gem 'mongoid', '~> 3.0.0'
+    gem 'mongoid', '~> 3.1.4'
 
 And then execute:
 
@@ -25,14 +25,23 @@ Run this command
 
 change your mongoid.yml configuration in config/mongoid.yml depends on your MongoDB configuration
 
+add these following lines to config/application.rb to prevent default mongoid overrides
+
+	config.generators do |g|
+	  g.orm :active_record
+	end
+
 To get available data
 	$ rails c
 
 	# get the first data
-	$ Metric.first
+	$ GarudaMetric::Metric.first
 
 	# get interval time data
-	$ Metric.get_interval_data(start_time...end_time)
+	$ GarudaMetric::MetricMetric.get_interval_data(start_time...end_time)
+
+	# Get 10 last subscribed notifications
+	$ GarudaMetric.order_last
 
 ## Contributing
 

@@ -1,11 +1,16 @@
 require 'mongoid'
+require 'active_model'
+# require 'active_support'
 module GarudaMetric
-	module Metric
+	class Metric
+
 		include Mongoid::Document
 		include Mongoid::Timestamps
 
-		attr_accessible :name, :start, :finish, :path, :page_duration, :view_duration, :db_duration
+		# mattr_accessor :name, :start, :finish, :path, :page_duration, :view_duration, :db_duration
 
+		attr_accessible :name, :start, :finish, :path, :page_duration, :view_duration, :db_duration
+		
 		field :name, type: String
 		field :start, type: DateTime
 		field :finish, type: DateTime

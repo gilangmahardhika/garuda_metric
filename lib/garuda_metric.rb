@@ -1,5 +1,8 @@
 require "garuda_metric/version"
-require "garuda_metric/metric"
+require 'active_support'
 module GarudaMetric
-  # include GarudaMetric::Metric
+	extend ActiveSupport::Concern
+	extend ActiveSupport::Autoload
+
+	autoload :Metric,     'garuda_metric/metric'
 end

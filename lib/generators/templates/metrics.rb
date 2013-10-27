@@ -1,5 +1,5 @@
 ActiveSupport::Notifications.subscribe do |name, start, finish, id, payload|  
-  Metric.create! do |page_request| 
+  GarudaMetric::Metric.create do |page_request| 
 	 	page_request.name = name
 	 	page_request.start = start
 	 	page_request.finish = finish
